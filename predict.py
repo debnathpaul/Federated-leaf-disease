@@ -22,8 +22,8 @@ CLASS_NAMES = [
     'Tomato_Bacterial_spot',
     'Tomato_Early_blight',
     'Tomato_Late_blight',
-    'Potato_Early_blight',
-    'Potato_Late_blight'
+    'Potato___Early_blight',   
+    'Potato___Late_blight'      
 ]
 
 CLASS_INFO = {
