@@ -1,4 +1,4 @@
-﻿# 🌾 Federated Learning for a Scalable Hierarchical Agricultural Network
+﻿# Federated Learning for a Scalable Hierarchical Agricultural Network
 ## A Distributed AI Approach to Leaf Disease Detection
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Overview
+##  Overview
 
 This is a **final year project** implementing a production-ready 3-tier hierarchical federated learning network for agricultural leaf disease detection. The system enables decentralized, privacy-preserving machine learning across distributed farm nodes without requiring raw data to leave the farms.
 
@@ -17,7 +17,7 @@ Model weights are aggregated across farms using Federated Averaging (FedAvg) whi
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 \\\
 ┌─────────────────────────────────────────────────────────────────┐
@@ -61,45 +61,45 @@ Communication Flow:
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🔒 Privacy-Preserving
+###  Privacy-Preserving
 - **Zero raw data sharing** - Only model weights transmitted between nodes
 - Sensitive agricultural data never leaves the farm
 - Compliant with data privacy regulations (GDPR, etc.)
 
-### 📈 Scalable Architecture
+###  Scalable Architecture
 - **3-tier hierarchy** - Efficient aggregation tree structure
 - Easily extensible to 100+ farms
 - Regional bottleneck mitigation through aggregators
 - Supports farms with limited bandwidth
 
-### 🌱 Realistic Data Distribution
+###  Realistic Data Distribution
 - **Non-IID data splits** across farms
 - Simulates real-world farm conditions
 - Different crop varieties and disease prevalence per farm
 - Challenges and validates federated learning robustness
 
-### 💾 Low Memory Footprint
+###  Low Memory Footprint
 - **Sequential training** - One farm trains at a time
 - Suitable for Windows PCs and modest hardware
 - CPU-only operation (no GPU required)
 - CNN model size: 1.61 MB
 
-### 🤝 No External FL Libraries
+###  No External FL Libraries
 - **FedAvg implemented from scratch** - Educational value
 - Pure PyTorch + Flask
 - Easy to understand and modify
 - Transparent communication protocol
 
-### 📡 Flexible Communication
+###  Flexible Communication
 - **Flask REST API** - Language/platform agnostic
 - **File-based coordination** - Prevents polling conflicts
 - Easily adaptable to other messaging systems
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Component | Technology | Version |
 |-----------|-----------|---------|
@@ -146,7 +146,7 @@ Output (6 Disease Classes)
 
 ---
 
-## 🍅 Disease Classes
+##  Disease Classes
 
 The model classifies between 6 crop disease categories:
 
@@ -161,51 +161,51 @@ The model classifies between 6 crop disease categories:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 \\\
 federated-leaf-disease/
 │
-├── 📄 README.md                          # This file
-├── 📄 requirements.txt                   # Python dependencies
-├── 📄 run_simulation.py                  # Main orchestrator
-├── 📄 generate_graphs.py                 # Visualization script
-├── 📄 save_model.py                      # Train and save the AI model locally
-│── 📄 predict.py                         # Predict disease from leaf image
+├──  README.md                          # This file
+├──  requirements.txt                   # Python dependencies
+├──  run_simulation.py                  # Main orchestrator
+├──  generate_graphs.py                 # Visualization script
+├──  save_model.py                      # Train and save the AI model locally
+│──  predict.py                         # Predict disease from leaf image
 │
-├── 📁 model/
+├── model/
 │   └── cnn_model.py                      # LeafDiseaseNet CNN architecture
 │
-├── 📁 communication/
+├── communication/
 │   └── edge_node/
 │       ├── train_local.py                # Farm local training
 │       ├── dataset.py                    # Data loading & splitting
 │       └── send_weights.py               # Weight transmission
 │
-├── 📁 regional_aggregator/
+├── regional_aggregator/
 │   └── aggregator.py                     # Regional FedAvg aggregation
 │
-├── 📁 global_server/
+├── global_server/
 │   ├── server.py                         # Global coordination & FedAvg
 │   └── model.py                          # Global model management
 │
-├── 📁 utils/
+├── utils/
 │   ├── metrics.py                        # Performance metrics
 │   └── visualize.py                      # Visualization utilities
 │
-├── 📁 notebooks/
+├── notebooks/
 │   └── demo.ipynb                        # Interactive results demo
 │
-├── 📁 results/                           # Generated graphs
+├── results/                           # Generated graphs
 │   ├── farm_accuracy_per_round.png
 │   ├── global_accuracy_trend.png
 │   ├── training_loss_trend.png
 │   └── accuracy_heatmap.png
 │
-├── 📁 flags/                             # Coordination via file system
+├── flags/                             # Coordination via file system
 │   └── round_*_farm_*_done.txt
 │
-└── 📁 data/
+└── data/
     └── plantvillage/                     # PlantVillage dataset
         ├── Tomato_healthy/
         ├── Tomato_Bacterial_spot/
@@ -217,7 +217,7 @@ federated-leaf-disease/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 - **Python 3.10+** (3.14 recommended)
@@ -226,13 +226,13 @@ federated-leaf-disease/
 - **Windows 10+, macOS, or Linux**
 
 ### Step 1: Clone Repository
-\\\ash
-git clone https://github.com/yourusername/federated-leaf-disease.git
+\\\ash
+git clone https://github.com/debnathpaul/federated-leaf-disease.git
 cd federated-leaf-disease
 \\\
 
 ### Step 2: Create Virtual Environment
-\\\ash
+\\\ash
 # Windows
 python -m venv .venv
 .venv\Scripts\activate
@@ -243,7 +243,7 @@ source .venv/bin/activate
 \\\
 
 ### Step 3: Install Dependencies
-\\\ash
+\\\ash
 pip install -r requirements.txt
 \\\
 
@@ -262,33 +262,33 @@ data/plantvillage/
 
 ---
 
-## ⚡ How to Run
+##  How to Run
 
 ### Full Simulation (3 Rounds, 2 Epochs)
-\\\ash
+\\\ash
 python run_simulation.py --rounds 3 --epochs 2
 \\\
 
 ### Quick Test (1 Round, 1 Epoch - ~2 minutes)
-\\\ash
+\\\ash
 python run_simulation.py --rounds 1 --epochs 1
 \\\
 
 ### Generate Visualization Graphs
 After simulation completes:
-\\\ash
+\\\ash
 python generate_graphs.py
 \\\
 
 This generates 4 PNG files in \
 esults/\:
-- \arm_accuracy_per_round.png\ - Individual farm trajectories
+- \arm_accuracy_per_round.png\ - Individual farm trajectories
 - \global_accuracy_trend.png\ - Global model convergence
 - \	raining_loss_trend.png\ - Loss reduction over rounds
-- \ccuracy_heatmap.png\ - Farm performance matrix
+- \ccuracy_heatmap.png\ - Farm performance matrix
 
 ### View Interactive Demo
-\\\ash
+\\\ash
 jupyter notebook notebooks/demo.ipynb
 \\\
 
@@ -301,18 +301,18 @@ This launches a comprehensive Jupyter notebook with:
 
 ---
 
-## 📈 Results
+##  Results
 
 ### Performance Summary
 
 | Metric | Value |
 |--------|-------|
 | **Round 1 Global Accuracy** | 41.2% |
-| **Round 2 Global Accuracy** | 54.2% ⬆️ |
+| **Round 2 Global Accuracy** | 54.2% ⬆ |
 | **Round 3 Global Accuracy** | 54.0% (converged) |
 | **Improvement (R1→R2)** | +31.6% |
 | **Initial Loss (R1)** | 1.18 |
-| **Final Loss (R3)** | 0.89 ⬇️ |
+| **Final Loss (R3)** | 0.89 ⬇ |
 | **Best Farm Accuracy** | 60.0% (Farm 0) |
 | **Worst Farm Accuracy** | 35.0% (Farm 1, R1) |
 | **Final Consistency (Std Dev)** | ±4.4% |
@@ -329,15 +329,15 @@ Accuracy Trajectory:
 \\\
 
 **Key Observations:**
-- ✅ Strong convergence in Round 2 validates FedAvg implementation
-- ✅ Stabilization in Round 3 shows model maturity
-- ✅ Non-IID data did not prevent learning
-- ✅ All farms improved despite heterogeneous data
-- ✅ Training loss decreased 24.7% in first round
+-  Strong convergence in Round 2 validates FedAvg implementation
+-  Stabilization in Round 3 shows model maturity
+-  Non-IID data did not prevent learning
+-  All farms improved despite heterogeneous data
+-  Training loss decreased 24.7% in first round
 
 ---
 
-## 🔧 How Federated Learning Works in This Project
+##  How Federated Learning Works in This Project
 
 ### Workflow Overview
 
@@ -404,7 +404,7 @@ for each round:
 
 ---
 
-## 📚 Dataset
+##  Dataset
 
 ### PlantVillage
 
@@ -426,7 +426,7 @@ This creates a challenging federated learning environment that validates the rob
 
 ---
 
-## 🔍 Communication Protocol
+##  Communication Protocol
 
 ### REST Endpoints
 
@@ -468,7 +468,7 @@ Content-Type: application/json
 
 ### File-Based Coordination
 
-Flag files in \lags/\ directory prevent synchronization issues:
+Flag files in \lags/\ directory prevent synchronization issues:
 - **Purpose:** Reliable, simple coordination without polling
 - **Format:** \
 ound_{round_number}_farm_{farm_id}_done.txt\
@@ -476,7 +476,7 @@ ound_{round_number}_farm_{farm_id}_done.txt\
 
 ---
 
-## 🎯 Key Implementation Details
+##  Key Implementation Details
 
 ### Why No Polling?
 - Prevents Windows file system conflicts
@@ -498,7 +498,7 @@ ound_{round_number}_farm_{farm_id}_done.txt\
 
 ---
 
-## 🚧 Future Work
+##  Future Work
 
 ### Phase 2: Enhancements
 - [ ] Encrypted communication (TLS/SSL)
@@ -528,7 +528,7 @@ ound_{round_number}_farm_{farm_id}_done.txt\
 
 ---
 
-## 📖 How to Use This Project
+##  How to Use This Project
 
 ### For Learning
 1. Read this README thoroughly
@@ -553,10 +553,10 @@ un_simulation.py\
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
-\\\ash
+\\\ash
 # Optional: Set Python path
 export PYTHONPATH="\:\D:\federated-leaf-disease"
 
@@ -588,11 +588,11 @@ num_classes=6            # Output classes
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: "Module not found" error
 **Solution:**
-\\\ash
+\\\ash
 # Ensure virtual environment is activated
 .venv\Scripts\activate  # Windows
 source .venv/bin/activate  # macOS/Linux
@@ -603,7 +603,7 @@ pip install -r requirements.txt
 
 ### Issue: "Port already in use" (5001, 5002, 5003, 5000)
 **Solution:**
-\\\ash
+\\\ash
 # Kill the process using the port (Windows)
 netstat -ano | findstr :5001
 taskkill /PID <PID> /F
@@ -634,13 +634,13 @@ esults/\ directory exists
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## ✍️ Author
+##  Author
 
 **Your Name Here**  
 Department: Computer Science / AI / Data Science  
@@ -650,7 +650,7 @@ Date: 2024-2025
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **PlantVillage Dataset:** [Original paper](https://arxiv.org/abs/1604.04004)
 - **PyTorch Team:** For the excellent deep learning framework
@@ -660,7 +660,7 @@ Date: 2024-2025
 
 ---
 
-## 📞 Support
+##  Support
 
 For questions or issues:
 1. **Check FAQ** in this README
@@ -678,18 +678,4 @@ For questions or issues:
 - [PyTorch Documentation](https://pytorch.org/docs/)
 - [Federated Learning Overview](https://www.tensorflow.org/federated)
 
----
 
-**Last Updated:** May 21, 2025  
-**Version:** 1.0  
-**Status:** ✅ Complete and Tested
-
----
-
-<div align="center">
-
-### Made with ❤️ for Agriculture and Privacy-Preserving AI
-
-⭐ If this project helped you, please consider starring the repository!
-
-</div>
